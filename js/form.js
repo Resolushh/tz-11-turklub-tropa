@@ -3,7 +3,14 @@
  const form=document.querySelector('#booking-form'),status=document.querySelector('#form-status'),q=new URLSearchParams(location.search);
  if(window.TROPA_TRIPS.some(t=>t[0]===q.get('trip')))form.elements.trip_id.value=q.get('trip');
  if(/^202[67]-\d{2}-\d{2}$/.test(q.get('date')||''))form.elements.trip_date.value=q.get('date');
- let requestId='REQ-'+crypto.randomUUID();
+ const requestId='REQ-'+crypto.randomUUID();
+ form.elements.request_id.value=requestId;
+ const attributionDefaults={utm_source:'direct',utm_medium:'none',utm_campaign:'not_set',utm_content:'not_set'};
+ for(const [key,fallback] of Object.entries(attributionDefaults)) {
+   let value=fallback;
+   try { value=sessionStorage.getItem(key)||fallback; } catch {}
+   form.elements[key].value=value;
+ }
  function error(field,text,type='validation'){const node=document.querySelector('#error-'+field);if(node)node.textContent=text;form.elements[field]?.classList.add('invalid');form.elements[field]?.setAttribute('aria-invalid','true');window.tropaEvent('form_error',{field_name:field,error_type:type});}
  form.addEventListener('submit',async e=>{
  e.preventDefault();status.textContent='';form.querySelectorAll('.error').forEach(n=>n.textContent='');form.querySelectorAll('.invalid').forEach(n=>{n.classList.remove('invalid');n.removeAttribute('aria-invalid');});
