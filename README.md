@@ -7,7 +7,7 @@
 - GitHub: https://github.com/Resolushh/tz-11-turklub-tropa
 
 ## Текущее состояние
-Репозиторий опубликован: https://github.com/Resolushh/tz-11-turklub-tropa . Создан ресурс GA4 «ТРОПА — сайт» с часовым поясом Москва и валютой RUB; веб-поток ещё не создан. Сайт опубликован на Vercel, проект связан с веткой main. Приёмник Google Таблицы, ManyChat и DataLens не подключены. Публикаций и отчётов нет.
+Репозиторий опубликован: https://github.com/Resolushh/tz-11-turklub-tropa . Создан ресурс GA4 «ТРОПА — сайт» с часовым поясом Москва и валютой RUB; веб-поток создан, Measurement ID: G-JG7PNX1WWW. Тег установлен во всех HTML; получение событий проверяется отдельно. Сайт опубликован на Vercel, проект связан с веткой main. Приёмник Google Таблицы, ManyChat и DataLens не подключены. Публикаций и отчётов нет.
 
 Открыть: python -m http.server 4173 --bind 127.0.0.1
 

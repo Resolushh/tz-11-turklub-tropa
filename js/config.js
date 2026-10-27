@@ -1,5 +1,5 @@
 window.TROPA_CONFIG = {
-  "measurementId": "",
+  "measurementId": "G-JG7PNX1WWW",
   "bookingEndpoint": "",
   "socials": {},
   "departures": []
