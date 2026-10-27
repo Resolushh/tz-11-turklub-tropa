@@ -17,7 +17,7 @@
 Сообщение в Direct: «Привет! Это „Тропа“. Держи чек-лист „Что взять в зимний поход“ и калькулятор аренды — если чего-то нет, дадим.»
 
 Кнопка «Открыть чек-лист» (U-02):
-https://tz-11-turklub-tropa-phi.vercel.app/gear.html?utm_source=instagram&utm_medium=social&utm_campaign=winter_trips_2026&utm_content=reel_tent_01
+https://tz-11-turklub-tropa-phi.vercel.app/gear.html?utm_source=instagram&utm_medium=social&utm_campaign=winter_trips_2026&utm_content=reel_tent_01&utm_term=winter_hiking
 
 ## Ветка НОВИЧОК
 
@@ -26,7 +26,7 @@ https://tz-11-turklub-tropa-phi.vercel.app/gear.html?utm_source=instagram&utm_me
 Сообщение в Direct: «Три зимних маршрута, которые проходят без опыта, — по кнопке ниже.»
 
 Кнопка «Маршруты для новичков» (U-03):
-https://tz-11-turklub-tropa-phi.vercel.app/trips.html?utm_source=instagram&utm_medium=social&utm_campaign=beginners_dec_2026&utm_content=reel_tent_01_easy#easy
+https://tz-11-turklub-tropa-phi.vercel.app/trips.html?utm_source=instagram&utm_medium=social&utm_campaign=beginners_dec_2026&utm_content=reel_tent_01_easy&utm_term=winter_hiking#easy
 
 Якорь находится после UTM. На сайте #easy включает фильтр «легко»: Ледяные водопады, Снегоступы для начинающих, Новогодняя изба.
 

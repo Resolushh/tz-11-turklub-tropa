@@ -21,6 +21,9 @@
  if(!window.TROPA_TRIPS.some(t=>t[0]===data.trip_id))fail('trip_id','Выберите маршрут.');
  if(!form.elements.trip_date.checkValidity()||!data.trip_date)fail('trip_date','Выберите дату декабря 2026 или января 2027.');
  if(!Number.isInteger(data.participants)||data.participants<1||data.participants>6)fail('participants','От 1 до 6 участников.');
+ const departure=window.TROPA_CONFIG.departures.find(d=>d.tripId===data.trip_id&&d.date===data.trip_date);
+ if(window.TROPA_CONFIG.departures.length&&!departure)fail('trip_date','Для этого маршрута нет выезда в выбранную дату. Проверьте календарь.');
+ if(departure&&departure.seats<data.participants)fail('participants',departure.seats===0?'На эту дату мест нет. Выберите другую дату.':'Осталось мест: '+departure.seats+'. Уменьшите число участников или выберите другую дату.');
  if(!form.elements.age.checked)fail('age','Подтвердите возрастное условие.');if(!form.elements.consent.checked)fail('consent','Для отправки необходимо согласие.');
  if(invalid){form.querySelector('.invalid')?.focus();return;}
  if(!window.TROPA_CONFIG.bookingEndpoint){status.textContent='Приём заявок ещё не подключён. Заявка не отправлена.';window.tropaEvent('form_error',{field_name:'server',error_type:'server'});return;}
