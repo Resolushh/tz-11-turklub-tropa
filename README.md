@@ -1,9 +1,13 @@
 # Турклуб «Тропа» — курсовой проект
 
-Первая локальная версия по ТЗ № ТЗ-11/2026. HTML, CSS, JavaScript без сборки.
+Первая опубликованная версия по ТЗ № ТЗ-11/2026. HTML, CSS, JavaScript без сборки.
+
+## Ссылки
+- Сайт: https://tz-11-turklub-tropa-phi.vercel.app/
+- GitHub: https://github.com/Resolushh/tz-11-turklub-tropa
 
 ## Текущее состояние
-Репозиторий опубликован: https://github.com/Resolushh/tz-11-turklub-tropa . Создан ресурс GA4 «ТРОПА — сайт» с часовым поясом Москва и валютой RUB; веб-поток ещё не создан. Сайт пока локальный. Приёмник Google Таблицы, ManyChat и DataLens не подключены. Публикаций и отчётов нет.
+Репозиторий опубликован: https://github.com/Resolushh/tz-11-turklub-tropa . Создан ресурс GA4 «ТРОПА — сайт» с часовым поясом Москва и валютой RUB; веб-поток ещё не создан. Сайт опубликован на Vercel, проект связан с веткой main. Приёмник Google Таблицы, ManyChat и DataLens не подключены. Публикаций и отчётов нет.
 
 Открыть: python -m http.server 4173 --bind 127.0.0.1
 
