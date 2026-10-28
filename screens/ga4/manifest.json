@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-28",
+  "property": "560936809",
+  "measurement_id": "G-JG7PNX1WWW",
+  "verified_events": {
+    "page_view": "debug-page-location.jpg",
+    "scroll": "debug-scroll.jpg",
+    "click": "debug-click-outbound.jpg",
+    "file_download": "debug-download.jpg",
+    "form_start": "debug-form-start.jpg",
+    "generate_lead": "debug-funnel-2026-10-28.jpg",
+    "cta_click": "debug-cta-button.jpg",
+    "trip_filter": "debug-trip-filter.jpg",
+    "trip_view": "debug-trip-view.jpg",
+    "date_select": "debug-date-seats.jpg",
+    "guide_view": "debug-guide.jpg",
+    "rental_calc": "debug-rental-price.jpg",
+    "checklist_check": "debug-checklist.jpg",
+    "contact_click": "debug-contact.jpg",
+    "form_error": "debug-form-error.jpg",
+    "promo_copy": "debug-promo.jpg",
+    "map_open": "debug-map.jpg"
+  },
+  "extra_parameters": {
+    "page_view_title": "debug-page-title.jpg",
+    "click_url": "debug-click-url.jpg",
+    "cta_click_section": "debug-cta-section.jpg",
+    "trip_filter_duration": "debug-filter-duration.jpg"
+  },
+  "unverified_events": [
+    "form_submit",
+    "messenger_click",
+    "social_click"
+  ],
+  "method": "Unmodified screenshots from live GA4 DebugView; lossless format conversion from JPEG to PNG only."
+}
