@@ -1,0 +1,191 @@
+[
+  {
+    "width": 375,
+    "page": "index",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "trips",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "calendar",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "guides",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "gear",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "contacts",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "thanks",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "privacy",
+    "brokenImages": 0,
+    "scroll": 360,
+    "view": 360
+  },
+  {
+    "width": 375,
+    "page": "404",
+    "brokenImages": 0,
+    "scroll": 375,
+    "view": 375
+  },
+  {
+    "width": 768,
+    "page": "index",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "trips",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "calendar",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "guides",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "gear",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "contacts",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "thanks",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "privacy",
+    "brokenImages": 0,
+    "scroll": 753,
+    "view": 753
+  },
+  {
+    "width": 768,
+    "page": "404",
+    "brokenImages": 0,
+    "scroll": 768,
+    "view": 768
+  },
+  {
+    "width": 1280,
+    "page": "index",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "trips",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "calendar",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "guides",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "gear",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "contacts",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "thanks",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "privacy",
+    "brokenImages": 0,
+    "scroll": 1265,
+    "view": 1265
+  },
+  {
+    "width": 1280,
+    "page": "404",
+    "brokenImages": 0,
+    "scroll": 1280,
+    "view": 1280
+  }
+]
