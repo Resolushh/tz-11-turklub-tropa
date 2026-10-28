@@ -4,3 +4,4 @@
 h1,h2,h3{overflow-wrap:anywhere}
 
 .meeting-map{display:block;width:100%;height:340px;border:1px solid var(--line);border-radius:3px}.guide-card summary{cursor:pointer;min-height:44px;padding:12px 0;color:var(--blue);font-weight:700}.guide-card details p{font-size:14px}.guide-card summary:focus-visible{outline:3px solid var(--orange);outline-offset:3px}[data-departures]>h2{margin:38px 0 8px}
+.nav{flex-wrap:wrap;justify-content:flex-end}.nav .nav-phone{white-space:nowrap;color:var(--blue)}
