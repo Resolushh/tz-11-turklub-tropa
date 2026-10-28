@@ -45,3 +45,6 @@ Apps Script v1 опубликован с разрешённым пользова
 
 ### Телефон в шапке
 По схеме приложенияА добавлен телефон в меню всех9страниц, событиеcontact_click сcontact_type=phone. На локальной главной при375px меню раскрывается, телефон виден, clientWidth=scrollWidth=360; при768px clientWidth=scrollWidth=753. Приём событияGA4 этой проверкой не доказан. Скринdocs/proofs/header-phone-mobile.png.
+
+## Оформление и комплект файлов — 28.10.2026
+Проверено наличие18основныхфайлов:9HTML,analytics.js,form.js,Code.gs,prompts.md,events.md,utm.csv,images.md,report.md,afisha.pdf. Пропусковнет. Воheadвсех9HTMLобнаруженыподключениеgtag.js сG-JG7PNX1WWW иconfigтого жересурса. ЛокальныеMarkdownссылкиREADME/opisanie/report/eventsуказываютнасуществующиефайлы. ПроверкатегаисходниковнеподтверждаетполучениесобытийGA4. README иописаниеобновленыпрореальныйприёмзаявкиисозданныеисследования. Презентациянеизменялась.
