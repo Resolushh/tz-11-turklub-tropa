@@ -1,6 +1,6 @@
 window.TROPA_CONFIG = {
   "measurementId": "G-JG7PNX1WWW",
-  "bookingEndpoint": "",
+  "bookingEndpoint": "https://script.google.com/macros/s/AKfycbyhBozSKs3-YAz70Dudk-P3xafmuxxr1FHXdiTIXI8D8-hAQ55RGb980l52EKK31go/exec",
   "socials": {},
   "departures": [
     {
