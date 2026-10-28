@@ -40,3 +40,64 @@
  for(const target of document.querySelectorAll('[data-social-links],[data-messenger-links]'))for(const [network,url] of Object.entries(cfg.socials)){if(!/^https:\/\//.test(url))continue;const messenger=['telegram','whatsapp'].includes(network);if(target.hasAttribute('data-messenger-links')&&!messenger)continue;const a=document.createElement('a');a.href=url;a.textContent=network;a.className='text-link';a.rel='noopener';a.dataset.event=target.hasAttribute('data-messenger-links')?'messenger_click':'social_click';a.dataset[messenger&&target.hasAttribute('data-messenger-links')?'messenger':'network']=network;a.dataset.pageSection='footer';target.append(a);}
  const number=document.querySelector('#booking-number');if(number)try{const id=sessionStorage.getItem('last_request_id');if(id)number.textContent=id;}catch{}
 })();
+
+// Motion is an enhancement: content remains visible if APIs or JS are unavailable.
+(() => {
+ 'use strict';
+ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+ const header = document.querySelector('body > header');
+ const menu = document.querySelector('.menu');
+ const nav = document.querySelector('#main-nav');
+ const closeMenu = () => {nav?.classList.remove('open');menu?.setAttribute('aria-expanded','false');};
+ document.addEventListener('keydown', e => {if(e.key==='Escape' && nav?.classList.contains('open')){closeMenu();menu?.focus();}});
+ nav?.addEventListener('click', e => {if(e.target.closest('a'))closeMenu();});
+ document.addEventListener('click', e => {if(header && !header.contains(e.target))closeMenu();});
+
+ const progress = document.createElement('div');
+ progress.className='reading-progress';progress.setAttribute('aria-hidden','true');
+ document.body.append(progress);
+ const top = document.createElement('button');
+ top.type='button';top.className='back-to-top';top.textContent='↑';
+ top.setAttribute('aria-label','Вернуться к началу страницы');top.hidden=true;
+ document.body.append(top);
+ top.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});
+  // Return keyboard focus to a visible destination before the button disappears.
+  header?.querySelector('a')?.focus({preventScroll:true});
+ });
+ let scheduled=false;
+ const updateScroll=()=>{
+  const max=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  progress.style.transform=`scaleX(${max>0?Math.min(1,Math.max(0,scrollY/max)):0})`;
+  header?.classList.toggle('is-scrolled',scrollY>16);
+  top.hidden=scrollY<600;
+  scheduled=false;
+ };
+ const schedule=()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateScroll);}};
+ window.addEventListener('scroll',schedule,{passive:true});
+ window.addEventListener('resize',schedule,{passive:true});
+ updateScroll();
+
+ if(!('IntersectionObserver' in window)||!Element.prototype.animate)return;
+ const active=new Set();
+ const animate=(el,delay=0)=>{
+  if(reduced.matches)return;
+  const animation=el.animate([{opacity:0,transform:'translateY(18px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,delay,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});
+  active.add(animation);animation.finished.then(()=>active.delete(animation),()=>active.delete(animation));
+ };
+ const observer=new IntersectionObserver(entries=>{
+  for(const entry of entries)if(entry.isIntersecting){
+   observer.unobserve(entry.target);
+   const siblings=entry.target.parentElement?.children;
+   const order=siblings?Math.max(0,[...siblings].indexOf(entry.target)):0;
+   animate(entry.target,entry.target.matches('.card,.departure')?Math.min(order%3,2)*70:0);
+  }
+ },{threshold:.08});
+ const seen=new WeakSet();
+ const observe=el=>{if(!seen.has(el)){seen.add(el);observer.observe(el);}};
+ document.querySelectorAll('.section-head,.section>.eyebrow,.section>h2,.card,.departure,.band,.panel').forEach(observe);
+ document.querySelectorAll('.hero-copy>.eyebrow,.hero-copy>h1,.hero-copy>p,.hero-copy>.btn,.page-intro>h1,.page-intro>p').forEach((el,i)=>animate(el,Math.min(i,3)*70));
+ const grid=document.querySelector('#trip-grid');
+ if(grid)new MutationObserver(()=>{grid.querySelectorAll('.card').forEach(observe);schedule();}).observe(grid,{childList:true});
+ reduced.addEventListener('change',()=>{if(reduced.matches){for(const animation of active)animation.cancel();active.clear();}});
+})();

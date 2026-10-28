@@ -1,0 +1,128 @@
+[
+  {
+    "page": "index",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "trips",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "calendar",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "guides",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "gear",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "contacts",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "thanks",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "privacy",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 360,
+    "width": 360
+  },
+  {
+    "page": "404",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "page": "index",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "trips",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "calendar",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "guides",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "gear",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "contacts",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "thanks",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "privacy",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1265,
+    "width": 1265
+  },
+  {
+    "page": "404",
+    "broken": 0,
+    "motionReady": true,
+    "scrollWidth": 1280,
+    "width": 1280
+  }
+]
