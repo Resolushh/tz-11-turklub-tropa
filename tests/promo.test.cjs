@@ -31,6 +31,8 @@ function frontend(value,search=''){
  for(const k of ['#form-status','#promo-feedback','#promo-check'])nodes[k]=node();
  const button=node();
  const form={elements,addEventListener:(k,f)=>handlers[k]=f,querySelectorAll:()=>[],querySelector:s=>s==='[type=submit]'?button:Object.values(elements).find(e=>e.classList.contains('invalid'))};
+ Object.defineProperty(elements,Symbol.iterator,{value:function*(){yield* Object.values(this);}});
+ form.requestSubmit=()=>{let cancelled=false;handlers.submit({preventDefault(){cancelled=true;}});if(!cancelled){assert.ok(Object.values(elements).every(e=>e.disabled),'No personal fields in native confirmation navigation');location.href='thanks.html';}};
  nodes['#booking-form']=form;
  const location={search,href:''};
  class FormData{constructor(form){this.form=form;}*[Symbol.iterator](){for(const [k,v] of Object.entries(this.form.elements))yield[k,v.value];}}
