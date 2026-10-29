@@ -10,4 +10,4 @@
 - [U-08 · Telegram · Чат участников](https://tz-11-turklub-tropa-phi.vercel.app/calendar.html?utm_source=telegram&utm_medium=social&utm_campaign=winter_trips_2026&utm_content=members_chat&utm_term=winter_hiking)
 - [U-09 · YouTube · Описание видео Снежное плато](https://tz-11-turklub-tropa-phi.vercel.app/trips.html?utm_source=youtube&utm_medium=social&utm_campaign=winter_trips_2026&utm_content=video_plateau_01&utm_term=winter_hiking)
 
-Адреса и даты публикаций не заполняются вымышленными значениями. Короткие ссылки и подтверждённые переходы фиксируются отдельно после фактической проверки.
+Адреса и даты публикаций не заполняются вымышленными значениями. Для ВК, Telegram и YouTube используются полные UTM-ссылки и проверка переходов; публикация в соцсетях и внешний сокращатель по уточнённому объёму не требуются. Поле короткой ссылки может оставаться пустым. Подтверждение источника в GA4 проверяется отдельно от корректности адреса. [Протокол учебных переходов и заявок](reports/utm-simulation-2026-10-29.md).
