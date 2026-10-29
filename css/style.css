@@ -86,3 +86,8 @@ footer .footer-links:empty{display:none}footer p{font-size:13px}footer a{display
 .filters select:hover{border-color:#90aba0}.filters select:focus-visible{border-color:#22627d;outline:2px solid #22627d;outline-offset:3px}
 #result-count{margin:16px 0 24px;font-size:13px;color:#586a70}
 @media(max-width:700px){.filters{grid-template-columns:1fr;gap:16px;margin-top:24px}.filters select{font-size:16px}.filters label{font-size:14px}}
+
+/* Consistent inset for select arrows across browsers. */
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23183139' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:16px;padding-right:48px}
+.filters select{padding-right:48px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23183139' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:16px}
+@media(forced-colors:active){select,.filters select{appearance:auto;-webkit-appearance:auto;background-image:none}}
