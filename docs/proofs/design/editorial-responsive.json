@@ -1,0 +1,221 @@
+[
+  {
+    "page": "index",
+    "screen": 375,
+    "broken": 0,
+    "cover": 900,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "trips",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "calendar",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "guides",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "gear",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "contacts",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "thanks",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "privacy",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "404",
+    "screen": 375,
+    "broken": 0,
+    "scroll": 360,
+    "viewport": 360,
+    "viewportHeight": 900
+  },
+  {
+    "page": "index",
+    "screen": 768,
+    "broken": 0,
+    "cover": 900,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "trips",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "calendar",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "guides",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "gear",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "contacts",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "thanks",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "privacy",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "404",
+    "screen": 768,
+    "broken": 0,
+    "scroll": 753,
+    "viewport": 753,
+    "viewportHeight": 900
+  },
+  {
+    "page": "index",
+    "screen": 1280,
+    "broken": 0,
+    "cover": 900,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "trips",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "calendar",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "guides",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "gear",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "contacts",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "thanks",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "privacy",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  },
+  {
+    "page": "404",
+    "screen": 1280,
+    "broken": 0,
+    "scroll": 1265,
+    "viewport": 1265,
+    "viewportHeight": 900
+  }
+]

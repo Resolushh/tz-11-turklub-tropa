@@ -1,0 +1,74 @@
+/* Shared finishing layer for the local design study. */
+:root{--brand-forest:#193b39;--brand-moss:#426258;--brand-honey:#e8b451;--brand-paper:#f5f6f2;--brand-border:#dbe3da;--radius-card:18px;--radius-control:12px}
+body{color:var(--brand-forest);text-rendering:optimizeLegibility}
+h1,h2{font-kerning:normal;text-wrap:balance}
+.page-index h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.035em;line-height:1.15}
+.page-index .section>h2{max-width:850px}
+.section-head{gap:28px}.section-head .muted{line-height:1.7}
+.section>.eyebrow,.section-head .eyebrow{color:var(--brand-moss);letter-spacing:.16em}
+.hero-copy>p,.page-intro>p{text-shadow:0 1px 6px #102c344d}
+.price,.departure-date b,.hero-info b,output{font-variant-numeric:tabular-nums lining-nums}
+.hero-facts .hero-info span{font-size:12px;line-height:1.5}
+/* Give the primary destination a clear, restrained treatment. */
+body>header .nav a[href="contacts.html"]{padding:10px 20px;border:1px solid #ffffff73;border-radius:100px;min-height:44px;color:white}
+body>header .nav a[href="contacts.html"]::after{display:none}
+body>header:is(.is-scrolled,:has(.nav.open)) .nav a[href="contacts.html"]{background:var(--brand-forest);border-color:var(--brand-forest);color:#fff}
+body>header .nav a[href="contacts.html"]:hover{background:var(--brand-honey);border-color:var(--brand-honey);color:var(--brand-forest)}
+.card{border-color:var(--brand-border)!important;border-radius:var(--radius-card)!important}
+.card h3{line-height:1.25}.card h3 a{transition:color .2s}
+.card h3 a:hover{color:var(--brand-moss)}
+.card p{color:#52675e}.card .meta{color:#597063}
+.card .tag{background:#edf2e7;color:#3e5c49}
+.card .card-bottom{border-color:#e3e9df;padding-top:20px}
+.card .card-bottom .text-link{color:var(--brand-moss)}
+.card:focus-within{outline:1px solid #9eb6a5;outline-offset:2px}
+.text-link{text-decoration:none;text-underline-offset:5px}
+.text-link:hover{text-decoration:underline;text-decoration-thickness:1px}
+.departure{box-shadow:0 3px 14px #193b3903}
+.departure .btn.secondary{font-size:13px;min-height:46px}
+.departure-title{font-weight:600;letter-spacing:-.02em}
+.guide-card .card-body>p{min-height:48px;line-height:1.7}
+.guide-card details p{min-height:0}
+.guide-card summary{color:var(--brand-moss)}
+.panel{border-color:var(--brand-border)}
+.field>span:first-child,.filters label{color:#425d52}
+input:not([type=checkbox]),select{border-radius:var(--radius-control);border-color:#cbd8cc}
+input:not([type=checkbox]):focus,select:focus{border-color:var(--brand-moss);outline-color:var(--brand-moss);box-shadow:0 0 0 4px #42625812}
+input[type=checkbox]{accent-color:var(--brand-moss)}
+.gear-layout .check:has(input:checked){background:#edf3e6;border-color:#b5c9b4}
+.gear-layout .check:has(input:focus-visible){outline-color:var(--brand-moss)}
+.rental-summary{border:1px solid #dce5d2}
+.rental-summary output{color:var(--brand-forest)}
+.notice{background:#f8efdc;color:#6c5430;border:1px solid #eee3c9;border-left:3px solid #d5b479}
+.promo-panel{box-shadow:0 6px 24px #193b3903}
+.promo-panel h2{font-family:Arial,sans-serif!important;font-weight:600!important;letter-spacing:.06em!important}
+.prose p{color:#4a6258;line-height:1.85}.prose h2{margin-top:36px;margin-bottom:18px}
+.page-thanks .panel{padding:42px;border-top:3px solid #bccdbb}
+.page-thanks .panel .text-link{margin-top:10px}
+.page-404 .page-content{padding-bottom:28px}
+footer{background:#193733;border-top:1px solid #284a40}
+footer p{color:#bdcdc2;line-height:1.8}footer a{color:#edf2e9}
+footer a:hover{color:#efd39a}footer .wrap>div:last-child{padding-top:2px}
+.back-to-top{border-color:#ccd9ce;color:var(--brand-forest)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#587b60}
+@media(hover:hover) and (pointer:fine){.card:hover{box-shadow:0 18px 42px #193b3910;border-color:#b9cdbd!important}.departure:hover{border-color:#b9cdbd}}
+@media(max-width:980px){body>header .nav a[href="contacts.html"]{justify-content:center;margin-top:8px}.guide-card .card-body>p{min-height:0}}
+@media(max-width:700px){.page-index .section>h2,.page-index .section-head h2{font-size:35px}.page-index .hero .eyebrow,body:not(.page-index) .page-intro .eyebrow{font-size:10px;letter-spacing:.1em}.hero-facts .hero-info span{font-size:11px}.section-head{gap:16px}.section-head>.muted{font-size:13px;max-width:28ch}.page-thanks .panel{padding:28px 22px}.card h3{font-size:25px}.departure-title{font-size:17px}.prose h2{font-size:28px}.notice{font-size:13px;padding:16px 18px}.btn{min-height:52px}footer p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.card h3 a{transition:none}}
+
+/* Cover and facts occupy a complete first screen; the next section starts below it. */
+.page-index .hero-screen{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding-bottom:30px}
+.page-index .hero-screen>.hero{min-height:0;flex:1;display:flex}
+.page-index .hero-screen .hero-copy{min-height:0;padding-top:clamp(120px,14vh,160px);padding-bottom:clamp(140px,18vh,190px);justify-content:center}
+.page-index .hero-screen>.hero-facts{margin-top:0;padding-bottom:0;flex-shrink:0}
+.page-index .hero-screen+.section{padding-top:48px}
+@media(max-width:700px){.page-index .hero-screen{padding-bottom:26px}.page-index .hero-screen .hero-copy{padding-top:110px;padding-bottom:145px}.page-index .hero-screen+.section{padding-top:40px}}
+
+.booking-layout .promo-field{grid-column:1/-1;padding:20px;background:#f1f4eb;border:1px solid #d7e0ce;border-radius:14px}
+.promo-entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}
+.promo-entry .btn{margin:0;min-height:50px;padding:10px 18px;font-size:13px}
+#promo-feedback{font-size:12px;font-weight:400;line-height:1.65;color:#52675e;margin-top:10px}
+.promo-book{grid-column:1/-1;justify-self:start;margin-top:8px;color:#426258}
+@media(max-width:700px){.booking-layout .promo-field{padding:16px}.promo-entry{grid-template-columns:1fr}.promo-entry .btn{width:100%}}
+
+.promo-field>label{display:block;font-size:13px;font-weight:600;color:#425d52;margin-bottom:9px}
