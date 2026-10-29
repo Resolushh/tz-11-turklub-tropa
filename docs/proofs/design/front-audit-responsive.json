@@ -1,0 +1,218 @@
+[
+  {
+    "page": "index",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "trips",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "calendar",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "guides",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "gear",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "contacts",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "thanks",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "privacy",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "404",
+    "viewport": 375,
+    "brokenImages": 0,
+    "scrollWidth": 360,
+    "smallTargets": [],
+    "width": 360
+  },
+  {
+    "page": "index",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "trips",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "calendar",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "guides",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "gear",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "contacts",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "thanks",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "privacy",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "404",
+    "viewport": 768,
+    "brokenImages": 0,
+    "scrollWidth": 753,
+    "smallTargets": [],
+    "width": 753
+  },
+  {
+    "page": "index",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "trips",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "calendar",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "guides",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "gear",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "contacts",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "thanks",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "privacy",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  },
+  {
+    "page": "404",
+    "viewport": 1280,
+    "brokenImages": 0,
+    "scrollWidth": 1265,
+    "smallTargets": [],
+    "width": 1265
+  }
+]

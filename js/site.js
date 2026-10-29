@@ -7,8 +7,9 @@
  const menu=document.querySelector('.menu');menu?.addEventListener('click',()=>{const open=document.querySelector('.nav').classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
  const grid=document.querySelector('#trip-grid'), difficulty=document.querySelector('#difficulty'), duration=document.querySelector('#duration');
  const tripPhotos={"icefalls": ["icefalls.jpg", "Ледяные каскады и замёрзший водопад"], "snowshoes": ["snowshoes.jpg", "Группа путешественников на заснеженной тропе"], "sunrise": ["sunrise.jpg", "Снежные горные вершины в лучах рассвета"], "plateau": ["winter.jpg", "Открытые снежные склоны горного плато"], "traverse": ["traverse.jpg", "Лыжник на зимней лесной трассе"], "newyear_hut": ["newyear_hut.jpg", "Заснеженная лесная изба среди высоких елей"]};
- function renderTrips(){if(!grid)return;const found=trips.filter(t=>(!difficulty.value||t[2]===difficulty.value)&&(!duration.value||t[3]===Number(duration.value)));grid.replaceChildren();for(const t of found){const card=document.createElement('article');card.className='card';card.innerHTML=`<div class="card-art"><img src="img/travel/${tripPhotos[t[0]][0]}" alt="${tripPhotos[t[0]][1]}" width="1200" height="750" loading="lazy" decoding="async"></div><div class="card-body"><div class="meta"><span class="tag">${t[2]}</span><span>${t[3]} ${t[3]===1?'день':'дня'}</span></div><h3><a href="contacts.html?trip=${t[0]}" data-event="trip_view" data-trip-id="${t[0]}" data-difficulty="${t[2]}">${t[1]}</a></h3><p>${t[5]}</p>${cfg.tripDetails?.[t[0]]?`<p>${cfg.tripDetails[t[0]].sights}</p><p class="muted">Учебные данные: ${cfg.tripDetails[t[0]].distanceKm} км · набор ${cfg.tripDetails[t[0]].ascentM} м</p>`:""}${t[0]==='newyear_hut'?'<p>31 декабря — 2 января</p>':''}<div class="card-bottom"><span class="price">${money(t[4])}</span><a class="text-link" href="contacts.html?trip=${t[0]}" data-event="cta_click" data-button-name="book_${t[0]}" data-page-section="trips">В поход ↗</a></div></div>`;grid.append(card);}document.querySelector('#result-count').textContent='Маршрутов: '+found.length;}
- if(grid){if(location.hash==='#easy')difficulty.value='легко';renderTrips();for(const el of [difficulty,duration])el.addEventListener('change',()=>{renderTrips();emit('trip_filter',{difficulty:difficulty.value||'all',duration_days:duration.value||'all'});});}
+ function renderTrips(){if(!grid)return;const found=trips.filter(t=>(!difficulty.value||t[2]===difficulty.value)&&(!duration.value||t[3]===Number(duration.value)));grid.replaceChildren();for(const t of found){const card=document.createElement('article');card.className='card';card.innerHTML=`<div class="card-art"><img src="img/travel/${tripPhotos[t[0]][0]}" alt="${tripPhotos[t[0]][1]}" width="1200" height="750" loading="lazy" decoding="async"></div><div class="card-body"><div class="meta"><span class="tag">${t[2]}</span><span>${t[3]} ${t[3]===1?'день':'дня'}</span></div><h3><a href="contacts.html?trip=${t[0]}" data-event="trip_view" data-trip-id="${t[0]}" data-difficulty="${t[2]}">${t[1]}</a></h3><p>${t[5]}</p>${cfg.tripDetails?.[t[0]]?`<p>${cfg.tripDetails[t[0]].sights}</p><p class="muted">Учебные данные: ${cfg.tripDetails[t[0]].distanceKm} км · набор ${cfg.tripDetails[t[0]].ascentM} м</p>`:""}${t[0]==='newyear_hut'?'<p>31 декабря — 2 января</p>':''}<div class="card-bottom"><span class="price">${money(t[4])}</span><a class="text-link" href="contacts.html?trip=${t[0]}" data-event="cta_click" data-button-name="book_${t[0]}" data-page-section="trips">В поход ↗</a></div></div>`;grid.append(card);}if(!found.length){const empty=document.createElement('div');empty.className='empty';empty.innerHTML='<h3>Такого сочетания пока нет</h3><p>Попробуйте другую сложность или длительность похода.</p><button class="btn secondary" type="button" data-reset-filters>Сбросить фильтры</button>';grid.append(empty);}
+ document.querySelector('#result-count').textContent='Маршрутов: '+found.length;}
+ if(grid){grid.addEventListener('click',e=>{if(!e.target.closest('[data-reset-filters]'))return;difficulty.value='';duration.value='';renderTrips();difficulty.focus({preventScroll:true});emit('trip_filter',{difficulty:'all',duration_days:'all'});});if(location.hash==='#easy')difficulty.value='легко';renderTrips();for(const el of [difficulty,duration])el.addEventListener('change',()=>{renderTrips();emit('trip_filter',{difficulty:difficulty.value||'all',duration_days:duration.value||'all'});});}
  for(const target of document.querySelectorAll('[data-departures]')) {
   const departures=cfg.departures.filter(d=>/^202[67]-\d{2}-\d{2}$/.test(d.date)).sort((a,b)=>a.date.localeCompare(b.date));
   const visible=target.dataset.limit?departures.slice(0,Number(target.dataset.limit)):departures;
@@ -19,15 +20,23 @@
    const trip=trips.find(t=>t[0]===d.tripId);if(!trip)continue;
    if(!target.dataset.limit&&month!==d.date.slice(0,7)){month=d.date.slice(0,7);const heading=document.createElement('h2');heading.textContent=month==='2026-12'?'Декабрь 2026':'Январь 2027';target.append(heading);}
    const row=document.createElement('div');row.className='departure';
-   const text=document.createElement('div');text.textContent=new Date(d.date+'T12:00:00').toLocaleDateString('ru-RU',{day:'numeric',month:'long'})+' · '+trip[1]+' · '+(d.seats>0?d.seats+' '+new Intl.PluralRules('ru').select(d.seats).replace('one','место').replace('few','места').replace('many','мест').replace('other','мест'):'Мест нет');row.append(text);
+   const date=new Date(d.date+'T12:00:00');
+   const dateBadge=document.createElement('time');dateBadge.className='departure-date';dateBadge.dateTime=d.date;dateBadge.setAttribute('aria-label',date.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'}));
+   const day=document.createElement('b');day.textContent=String(date.getDate()).padStart(2,'0');
+   const monthLabel=document.createElement('span');monthLabel.textContent=date.toLocaleDateString('ru-RU',{month:'short'});dateBadge.append(day,monthLabel);row.append(dateBadge);
+   const text=document.createElement('div');text.className='departure-details';
+   const name=document.createElement('h3');name.className='departure-title';name.textContent=trip[1];
+   const seats=document.createElement('span');seats.className='seat-status';seats.textContent=d.seats>0?d.seats+' '+new Intl.PluralRules('ru').select(d.seats).replace('one','место').replace('few','места').replace('many','мест').replace('other','мест'):'Мест нет';
+   row.classList.toggle('is-full',d.seats===0);text.append(name,seats);row.append(text);
    const next=d.seats>0?d:departures.find(n=>n.tripId===d.tripId&&n.seats>0&&n.date>d.date);
-   if(next){const link=document.createElement('a');link.className='btn secondary';link.href='contacts.html?trip='+next.tripId+'&date='+next.date;link.textContent=d.seats>0?'Выбрать дату':'Другая дата: '+next.date;link.addEventListener('click',()=>emit('date_select',{trip_id:next.tripId,trip_date:next.date,seats_left:next.seats}));row.append(link);}
+   if(next){const link=document.createElement('a');link.className='btn secondary';link.href='contacts.html?trip='+next.tripId+'&date='+next.date;link.textContent=d.seats>0?'Выбрать дату':'Другая дата: '+new Date(next.date+'T12:00:00').toLocaleDateString('ru-RU',{day:'numeric',month:'long'});link.addEventListener('click',()=>emit('date_select',{trip_id:next.tripId,trip_date:next.date,seats_left:next.seats}));row.append(link);}
    target.append(row);
   }
  }
  for(const target of document.querySelectorAll('[data-guides]'))for(const guide of cfg.guides||[]) {
   const article=document.createElement('article');article.className='card guide-card';
   const body=document.createElement('div');body.className='card-body';
+  const avatar=document.createElement('span');avatar.className='guide-avatar';avatar.setAttribute('aria-hidden','true');avatar.textContent=guide.name.split(/\s+/).slice(0,2).map(part=>part[0]).join('');body.append(avatar);
   const heading=document.createElement('h3');heading.textContent=guide.name;body.append(heading);
   const role=document.createElement('p');role.className='muted';role.textContent=guide.role;body.append(role);
   const details=document.createElement('details');details.id='guide-'+guide.id;
@@ -39,7 +48,19 @@
  document.querySelector('#rental-calculate')?.addEventListener('click',()=>{const days=document.querySelector('#rental-days');if(!days.reportValidity())return;const chosen=[...document.querySelectorAll('[name=rental]:checked')];const price=chosen.reduce((s,e)=>s+Number(e.dataset.price),0)*Number(days.value);document.querySelector('#rental-total').textContent=money(price);emit('rental_calc',{items_count:chosen.length,days:Number(days.value),rental_price:price});});
  document.querySelector('#copy-promo')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('SNOW300');document.querySelector('#copy-status').textContent=' Скопировано';emit('promo_copy',{promo_code:'SNOW300'});}catch{document.querySelector('#copy-status').textContent=' Выделите и скопируйте: SNOW300';}});
  for(const target of document.querySelectorAll('[data-social-links],[data-messenger-links]'))for(const [network,url] of Object.entries(cfg.socials)){if(!/^https:\/\//.test(url))continue;const messenger=['telegram','whatsapp'].includes(network);if(target.hasAttribute('data-messenger-links')&&!messenger)continue;const a=document.createElement('a');a.href=url;a.textContent=network;a.className='text-link';a.rel='noopener';a.dataset.event=target.hasAttribute('data-messenger-links')?'messenger_click':'social_click';a.dataset[messenger&&target.hasAttribute('data-messenger-links')?'messenger':'network']=network;a.dataset.pageSection='footer';target.append(a);}
- const number=document.querySelector('#booking-number');if(number)try{const id=sessionStorage.getItem('last_request_id');if(id)number.textContent=id;}catch{}
+ const number=document.querySelector('#booking-number');
+ if(number){
+  let id='';try{id=sessionStorage.getItem('last_request_id')||'';}catch{}
+  if(/^REQ-[0-9a-f-]{36}$/i.test(id)){number.textContent=id;document.body.classList.add('has-booking');}
+  else{
+   document.querySelector('.page-intro .eyebrow').textContent='Бронирование';
+   document.querySelector('.page-intro h1').textContent='Ваша тропа ещё впереди';
+   document.querySelector('.page-intro p').textContent='Выберите маршрут и заполните форму, чтобы получить номер заявки.';
+   number.textContent='Вы ещё не отправили заявку';
+   number.nextElementSibling.textContent='После успешной отправки формы здесь появится номер для связи с клубом.';
+   const link=number.parentElement.querySelector('a');link.href='trips.html';link.textContent='Выбрать поход →';
+  }
+ }
 })();
 
 // Motion is an enhancement: content remains visible if APIs or JS are unavailable.
