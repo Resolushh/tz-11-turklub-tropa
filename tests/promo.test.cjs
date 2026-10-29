@@ -35,6 +35,7 @@ function frontend(value,search=''){
  const location={search,href:''};
  class FormData{constructor(form){this.form=form;}*[Symbol.iterator](){for(const [k,v] of Object.entries(this.form.elements))yield[k,v.value];}}
  const context=vm.createContext({window:{TROPA_TRIPS:[['icefalls']],TROPA_CONFIG:{bookingEndpoint:'https://example.invalid/test',departures:[{tripId:'icefalls',date:'2026-12-13',seats:8}]},tropaEvent(){}},document:{querySelector:s=>nodes[s]},location,URLSearchParams,FormData,crypto:{randomUUID:()=> '11111111-2222-4333-8444-555555555555'},sessionStorage:{getItem:k=>stored.get(k)||null,setItem:(k,v)=>stored.set(k,v)},AbortSignal:{timeout:()=>undefined},fetch:async(url,options)=>{requests.push(options.body);return {ok:true,json:async()=>({ok:true})};}});
+ vm.runInContext(fs.readFileSync(path.join(__dirname,'../js/phone.js'),'utf8'),context);
  vm.runInContext(formCode,context);
  return {elements,nodes,requests,location,submit:()=>handlers.submit({preventDefault(){}})};
 }
@@ -43,5 +44,8 @@ function frontend(value,search=''){
  f=frontend(' snow300 ');await f.submit();assert.equal(f.requests[0].get('promo_code'),'SNOW300');assert.equal(f.location.href,'thanks.html');
  f=frontend('OTHER');await f.submit();assert.equal(f.requests.length,0);assert.match(f.nodes['#error-promo_code'].textContent,/Код не найден/);
  f=frontend('','?promo=SNOW300');assert.equal(f.elements.promo_code.value,'SNOW300');assert.match(f.nodes['#promo-feedback'].textContent,/будет передан/);
+ for(const value of ['9001234567','79001234567','89001234567','+7 (900) 123-45-67','8 (900) 123 45 67','+70000000000']){f=frontend('');f.elements.phone.value=value;await f.submit();assert.equal(f.requests.length,1,value);assert.match(f.requests[0].get('phone'),/^\+7\d{10}$/);}
+ for(const value of ['900123','790012345678','+12025550123','900abc4567']){f=frontend('');f.elements.phone.value=value;await f.submit();assert.equal(f.requests.length,0,value);assert.match(f.nodes['#error-phone'].textContent,/10 цифр/);}
+ console.log('10 phone form integration checks passed; no live requests.');
  console.log('9 checks passed: migration, occupied column, valid/blank/unknown server codes, valid/blank/unknown form submission, prefill. Network and Sheets mocked; no live requests.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

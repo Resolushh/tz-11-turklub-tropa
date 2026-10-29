@@ -72,3 +72,26 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:#587b60
 @media(max-width:700px){.booking-layout .promo-field{padding:16px}.promo-entry{grid-template-columns:1fr}.promo-entry .btn{width:100%}}
 
 .promo-field>label{display:block;font-size:13px;font-weight:600;color:#425d52;margin-bottom:9px}
+
+/* Booking controls: fixed country code, readable hints and generous touch targets. */
+.booking-layout .booking-intro{margin:-10px 0 28px;color:#60736a;font-size:14px;max-width:46ch}
+.phone-field>label{display:block;margin-bottom:8px;font-size:14px;font-weight:600;color:#425d52}
+.phone-control{display:flex;align-items:center;min-height:54px;border:1px solid #cbd8cc;border-radius:12px;background:#fff;transition:border-color .18s,box-shadow .18s}
+.phone-control:focus-within{border-color:#426258;box-shadow:0 0 0 4px #42625812}
+.phone-code{flex:none;padding:0 15px 0 17px;border-right:1px solid #dfe6df;color:#193b39;font-size:16px;font-weight:600;line-height:24px}
+#booking-form .phone-control input{border:0!important;box-shadow:none!important;outline:none!important;border-radius:0 12px 12px 0;background:transparent;min-width:0;min-height:52px;padding:12px 14px;font-size:16px;letter-spacing:.025em;font-variant-numeric:tabular-nums}
+.phone-control:has(input[aria-invalid=true]){border-color:#a72b22;box-shadow:0 0 0 3px #a72b220a}
+.phone-control:has(input[aria-invalid=true]):focus-within{box-shadow:0 0 0 4px #a72b2214}
+.phone-hint{display:block;margin-top:8px;color:#697d71;font-size:12px;line-height:1.55}
+#booking-form .field{min-width:0}
+#booking-form .field>span.error,.phone-field>.error{font-size:12px;font-weight:400;line-height:1.5;margin:6px 0 0}
+#booking-form .error:empty{display:none}
+#booking-form input:not([type=checkbox]),#booking-form select{min-height:54px;font-size:16px;padding:13px 16px;border-radius:12px}
+#booking-form input::placeholder{color:#85958c;font-weight:400;opacity:1}
+#booking-form .field small.optional{margin-left:5px;color:#7b8a80;font-weight:400;font-size:12px}
+#booking-form>.check{padding:14px 0;line-height:1.6;font-size:13px;align-items:flex-start}
+#booking-form>.check input{width:21px;height:21px;margin-top:0;flex:none}
+#booking-form>.btn{width:100%;justify-self:stretch;min-height:56px;margin-top:4px}
+#booking-form :is(input,select,button){scroll-margin-top:120px}
+@media(max-width:700px){.booking-layout .booking-intro{margin-top:-8px;margin-bottom:24px;font-size:13px}.phone-code{padding-left:14px;padding-right:13px}#booking-form{gap:22px}.phone-hint{font-size:12px}#booking-form>.check{padding:10px 0}}
+@media(prefers-reduced-motion:reduce){.phone-control{transition:none}}

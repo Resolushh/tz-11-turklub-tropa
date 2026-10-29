@@ -4,6 +4,7 @@
  if(window.TROPA_TRIPS.some(t=>t[0]===q.get('trip')))form.elements.trip_id.value=q.get('trip');
  if(/^202[67]-\d{2}-\d{2}$/.test(q.get('date')||''))form.elements.trip_date.value=q.get('date');
 
+ window.TROPA_PHONE.attach(form.elements.phone,document.querySelector('#error-phone'));
  const promo=form.elements.promo_code, promoFeedback=document.querySelector('#promo-feedback');
  const normalizePromo=v=>String(v||'').trim().toUpperCase();
  if(promo&&normalizePromo(q.get('promo'))==='SNOW300')promo.value='SNOW300';
@@ -30,11 +31,13 @@
    form.elements[key].value=value;
  }
  function error(field,text,type='validation'){const node=document.querySelector('#error-'+field);if(node)node.textContent=text;form.elements[field]?.classList.add('invalid');form.elements[field]?.setAttribute('aria-invalid','true');window.tropaEvent('form_error',{field_name:field,error_type:type});}
+ function clearFieldError(event){const field=event.target;if(!field.name)return;field.classList.remove('invalid');field.removeAttribute('aria-invalid');const node=document.querySelector('#error-'+field.name);if(node)node.textContent='';}
+ form.addEventListener('input',clearFieldError);form.addEventListener('change',clearFieldError);
  form.addEventListener('submit',async e=>{
  e.preventDefault();status.textContent='';form.querySelectorAll('.error').forEach(n=>n.textContent='');form.querySelectorAll('.invalid').forEach(n=>{n.classList.remove('invalid');n.removeAttribute('aria-invalid');});
- const data=Object.fromEntries(new FormData(form));data.name=(data.name||'').trim();data.phone=(data.phone||'').replace(/[^+0-9]/g,'');if(data.phone.startsWith('8'))data.phone='+7'+data.phone.slice(1);data.email=(data.email||'').trim();data.participants=Number(data.participants);let invalid=false;const fail=(k,m)=>{invalid=true;error(k,m);};
+ const data=Object.fromEntries(new FormData(form));data.name=(data.name||'').trim();data.phone=window.TROPA_PHONE.normalize(data.phone);data.email=(data.email||'').trim();data.participants=Number(data.participants);let invalid=false;const fail=(k,m)=>{invalid=true;error(k,m);};
  if(data.name.length<2||data.name.length>60)fail('name','Введите имя от 2 до 60 символов.');
- if(!/^\+7\d{10}$/.test(data.phone))fail('phone','Введите телефон: +7 и 10 цифр.');
+ if(!data.phone)fail('phone','Укажите 10 цифр номера после +7.');
  if(data.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))fail('email','Проверьте адрес e-mail.');
  data.promo_code=normalizePromo(data.promo_code);if(data.promo_code&&data.promo_code!=='SNOW300')fail('promo_code','Код не найден. Проверьте написание или оставьте поле пустым.');
  if(!window.TROPA_TRIPS.some(t=>t[0]===data.trip_id))fail('trip_id','Выберите маршрут.');
