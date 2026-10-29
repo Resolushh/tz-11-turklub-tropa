@@ -91,3 +91,12 @@ footer .footer-links:empty{display:none}footer p{font-size:13px}footer a{display
 select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23183139' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:16px;padding-right:48px}
 .filters select{padding-right:48px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='m4 6 4 4 4-4' stroke='%23183139' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:16px}
 @media(forced-colors:active){select,.filters select{appearance:auto;-webkit-appearance:auto;background-image:none}}
+
+.booking-layout .promo-field{grid-column:1/-1;padding:20px;background:#f1f4eb;border:1px solid #d7e0ce;border-radius:14px}
+.promo-entry{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start}
+.promo-entry .btn{margin:0;min-height:50px;padding:10px 18px;font-size:13px}
+#promo-feedback{font-size:12px;font-weight:400;line-height:1.65;color:#52675e;margin-top:10px}
+.promo-book{grid-column:1/-1;justify-self:start;margin-top:8px;color:#426258}
+@media(max-width:700px){.booking-layout .promo-field{padding:16px}.promo-entry{grid-template-columns:1fr}.promo-entry .btn{width:100%}}
+
+.promo-field>label{display:block;font-size:13px;font-weight:600;color:#425d52;margin-bottom:9px}

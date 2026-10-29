@@ -3,6 +3,24 @@
  const form=document.querySelector('#booking-form'),status=document.querySelector('#form-status'),q=new URLSearchParams(location.search);
  if(window.TROPA_TRIPS.some(t=>t[0]===q.get('trip')))form.elements.trip_id.value=q.get('trip');
  if(/^202[67]-\d{2}-\d{2}$/.test(q.get('date')||''))form.elements.trip_date.value=q.get('date');
+
+ const promo=form.elements.promo_code, promoFeedback=document.querySelector('#promo-feedback');
+ const normalizePromo=v=>String(v||'').trim().toUpperCase();
+ if(promo&&normalizePromo(q.get('promo'))==='SNOW300')promo.value='SNOW300';
+ const checkPromo=()=>{
+  if(!promo)return;
+  promo.value=normalizePromo(promo.value);
+  promo.classList.remove('invalid');promo.removeAttribute('aria-invalid');
+  document.querySelector('#error-promo_code').textContent='';
+  if(!promo.value){promoFeedback.textContent='Можно оставить пустым. Укажите код, если он у вас есть.';return;}
+  if(promo.value==='SNOW300'){promoFeedback.textContent='Код SNOW300 указан и будет передан с заявкой. Условия подтвердит сотрудник клуба.';return;}
+  promoFeedback.textContent='';promo.classList.add('invalid');promo.setAttribute('aria-invalid','true');
+  document.querySelector('#error-promo_code').textContent='Код не найден. Проверьте написание или оставьте поле пустым.';
+ };
+ document.querySelector('#promo-check')?.addEventListener('click',checkPromo);
+ promo?.addEventListener('input',()=>{promo.classList.remove('invalid');promo.removeAttribute('aria-invalid');document.querySelector('#error-promo_code').textContent='';promoFeedback.textContent='Нажмите «Проверить» или отправьте заявку.';});
+ if(promo?.value)checkPromo();
+
  const requestId='REQ-'+crypto.randomUUID();
  form.elements.request_id.value=requestId;
  const attributionDefaults={utm_source:'direct',utm_medium:'none',utm_campaign:'not_set',utm_content:'not_set'};
@@ -18,6 +36,7 @@
  if(data.name.length<2||data.name.length>60)fail('name','Введите имя от 2 до 60 символов.');
  if(!/^\+7\d{10}$/.test(data.phone))fail('phone','Введите телефон: +7 и 10 цифр.');
  if(data.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))fail('email','Проверьте адрес e-mail.');
+ data.promo_code=normalizePromo(data.promo_code);if(data.promo_code&&data.promo_code!=='SNOW300')fail('promo_code','Код не найден. Проверьте написание или оставьте поле пустым.');
  if(!window.TROPA_TRIPS.some(t=>t[0]===data.trip_id))fail('trip_id','Выберите маршрут.');
  if(!form.elements.trip_date.checkValidity()||!data.trip_date)fail('trip_date','Выберите дату декабря 2026 или января 2027.');
  if(!Number.isInteger(data.participants)||data.participants<1||data.participants>6)fail('participants','От 1 до 6 участников.');
