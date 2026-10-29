@@ -1,6 +1,6 @@
-# События GA4
+# События GA4 — актуально на 30.10.2026
 
-Статус живой проверки 28.10.2026: управление Edge и Tag Assistant восстановлено. В DebugView наблюдались 17 из 20 предусмотренных событий. Полная цепочка page_view → trip_filter → cta_click → form_start → generate_lead подтверждена; новая заявка сверена с leads. [Протокол](reports/live-debug-2026-10-28.md).
+17 предусмотренных событий наблюдались в DebugView 28.10; три оставшихся подтверждены в Realtime 30.10. Это подтверждение по совокупности проверок, не одновременный тест всех событий в одной сессии.
 
 | Событие | Источник | Параметры с примерами | Условие |
 |---|---|---|---|
@@ -10,39 +10,30 @@
 | file_download | авто: Enhanced measurement | file_name, file_extension=pdf | PDF на gear.html |
 | form_start | авто: Enhanced measurement | form_id=booking-form | Первое взаимодействие |
 | form_submit | авто: Enhanced measurement | form_id=booking-form | Отправка формы |
-| generate_lead | js/form.js:32 | lead_trip_id=icefalls; participants=1; lead_source=instagram | Только после ok:true |
-| cta_click | index.html:9; js/site.js:9 | button_name=hero_trips; page_section=hero | Кнопки перехода к маршрутам и брони |
-| trip_filter | js/site.js:10 | difficulty=легко; duration_days=1 | Изменение фильтра |
-| trip_view | js/site.js:9 | trip_id=icefalls; difficulty=легко | Название маршрута в карточке |
-| date_select | js/site.js:23 | trip_id=icefalls; trip_date=2026-12-13; seats_left=8 | Выбор доступной даты |
-| guide_view | js/site.js:33 | guide_id=anna | Раскрытие учебной карточки |
-| rental_calc | js/site.js:38 | items_count=2; days=2; rental_price=1300 | Кнопка расчёта |
-| checklist_check | js/site.js:37 | item_id из data-item | Отметка пункта |
-| contact_click | contacts.html:9 | contact_type=phone или email | Телефон и e-mail |
-| messenger_click | js/site.js:40 | messenger=telegram или whatsapp | Нужны реальные project URLs в config.socials |
-| social_click | js/site.js:40 | network=instagram; page_section=footer | Нужны реальные project URLs в config.socials |
-| form_error | js/form.js:14 | field_name=participants; error_type=validation или server | Ошибка поля или приёмника |
-| promo_copy | js/site.js:39 | promo_code=SNOW300 | Успешное копирование, по выбору |
-| map_open | calendar.html:9 | map_service=openstreetmap | Ссылка учебной точки, по выбору |
-
-Все ручные отправки gtag(event) находятся в js/analytics.js: 10. Сайт передаёт только разрешённые неперсональные параметры. Имя, телефон и e-mail не включаются в события или URL.
-
-Обязательные определения уровня события: button_name, page_section, difficulty, trip_id, seats_left, lead_trip_id, messenger — сохранены в GA4.
-
-Ключевые события проекта: generate_lead, contact_click, messenger_click. Лишние close_convert_lead и qualify_lead сняты с ключевых. Системное purchase остаётся: Google отключил его переключатель и пункт меню снятия. Это отклонение от буквального требования ТЗ зафиксировано, а не скрыто.
-
-Реализованы обработчики ручных событий и подключён автосбор GA4; это не является доказательством приёма всех 20 имён событий. Автоматические события не дублируются вручную. messenger_click и social_click ожидают URL аккаунтов проекта; живой приёмник, переход thanks и получение generate_lead в GA4 подтверждены. form_submit пока не наблюдался, хотя автоматические взаимодействия с формами включены; причина не установлена. Наличие кода не подтверждает получение события в GA4.
-
-Доказательства определения параметров и ключевых событий находятся в screens/kursovaya/. Свежие скриншоты раскрытых параметров находятся в docs/proofs/live-debug/. Полный комплект по всем 20 событиям ещё не готов: form_submit, messenger_click и social_click не подтверждены; для click и части автоматических параметров нужны дополнительные снимки.
+| generate_lead | js/form.js | lead_trip_id=icefalls; participants=1; lead_source=instagram | Только после ok:true |
+| cta_click | index.html; js/site.js | button_name=hero_trips; page_section=hero | Кнопки перехода к маршрутам и брони |
+| trip_filter | js/site.js | difficulty=легко; duration_days=1 | Изменение фильтра |
+| trip_view | js/site.js | trip_id=icefalls; difficulty=легко | Название маршрута в карточке |
+| date_select | js/site.js | trip_id=icefalls; trip_date=2026-12-13; seats_left=8 | Выбор доступной даты |
+| guide_view | js/site.js | guide_id=anna | Раскрытие учебной карточки |
+| rental_calc | js/site.js | items_count=2; days=2; rental_price=1300 | Кнопка расчёта |
+| checklist_check | js/site.js | item_id из data-item | Отметка пункта |
+| contact_click | contacts.html | contact_type=phone или email | Телефон и e-mail |
+| messenger_click | js/site.js | messenger=telegram или whatsapp | Клик учебной кнопки; реальный чат не подключён |
+| social_click | js/site.js | network=instagram; page_section=footer | Клик Instagram @tropa_winter_hiking |
+| form_error | js/form.js | field_name=participants; error_type=validation или server | Ошибка поля или приёмника |
+| promo_copy | js/site.js | promo_code=SNOW300 | Успешное копирование, по выбору |
+| map_open | calendar.html | map_service=openstreetmap | Ссылка учебной точки, по выбору |
 
 
-## Обработанные данные 29.10.2026
-За 27–29.10: trip_filter 1/1 пользователь, cta_click 2/2, form_start 2/1, generate_lead 2/1; contact_click 1. [Подлинный CSV](reports/events-refresh-2026-10-29.csv). form_submit, messenger_click, social_click в текущем обработанном списке отсутствуют. [Воронки и пути](report.md) обновлены на тот же период; пять шагов теперь подтверждены в Explore.
+## Доказательства
 
+- [17 событий и цепочка заявки](reports/live-debug-2026-10-28.md).
+- [Автоматический form_submit, form_id=booking-form](reports/form-submit-fixed-2026-10-30.md).
+- social_click=1, network=instagram, page_section=footer: [событие](proofs/remaining-events-2026-10-30/social-click-event.png), [network](proofs/remaining-events-2026-10-30/social-click-network.png), [раздел](proofs/remaining-events-2026-10-30/social-click-section.png).
+- messenger_click=2, messenger=telegram:1 и whatsapp:1: [событие](proofs/remaining-events-2026-10-30/messenger-click-event.png), [значения](proofs/remaining-events-2026-10-30/messenger-click-values.png). Это учебные кнопки, не реальные чаты.
+- [Ожидание generate_lead перед навигацией](reports/lead-delivery-fix-2026-10-30.md).
 
-## Диагностика form_submit — 29.10
-Повторно подтверждено включение взаимодействий с формами в потоке. Выявлен отдельный уровень настройки автосбора Google tag, указанный в официальной документации; его панель сейчас не загружается. Причина отсутствия form_submit не установлена. [Проверки и следующий шаг](reports/form-submit-diagnosis-2026-10-29.md). Ручной дубль и изменения отправки формы не выполнялись.
+Семь Event-scope определений: button_name, page_section, difficulty, trip_id, seats_left, lead_trip_id, messenger. Ключевые события проекта: generate_lead, contact_click, messenger_click. Системное purchase не удалось снять в доступном интерфейсе.
 
-
-## Автоматическая отправка формы — 30.10.2026
-Автоматический form_submit исправлен и подтверждён в GA4: form_id=booking-form, 1 событие. Ручного дубля нет. Учебная заявка принята, переход на thanks.html не содержит контактных данных. Предыдущие отметки о неподтверждённом form_submit описывают историческое состояние. [Исправление и доказательства](reports/form-submit-fixed-2026-10-30.md).
+Все ручные вызовы проходят белый список неперсональных параметров js/analytics.js. Имя, телефон и e-mail в события не передаются. event_callback подтверждает обработку команды Google tag, а не серверный приём. Полный набор одинаковых кадров параметров для всех событий отдельно не объявляется собранным.
