@@ -54,3 +54,10 @@ footer a{transition:color .2s}footer a:hover{color:#efb44b}
 @media(hover:hover) and (pointer:fine){.card:hover{transform:translateY(-6px);border-color:#cddbd3;box-shadow:0 20px 44px #18313910}.card:hover .card-art::before{transform:scale(1.055)}.departure:hover{border-color:#b8cbc1}}
 @media(max-width:700px){html{scroll-padding-top:90px}.header{min-height:76px}.nav.open{border-top:1px solid #e3e9e5;padding-top:8px}.nav a{border-radius:10px}.nav a:hover{background:#edf3ef}.nav a::after{display:none}.back-to-top{right:16px;bottom:16px;width:44px;height:44px}.card:hover{transform:none}.menu[aria-expanded=true]{background:#193b39;color:#fff}.header:has(.nav.open){max-height:85vh;overflow-y:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.card:hover,.btn:hover,.btn:active,.back-to-top:hover,.card:hover .card-art::before,.btn:hover>span{transform:none}}
+
+/* Route images are bound to route IDs, so filtering cannot swap photographs. */
+#trip-grid .card-art{background:none}
+#trip-grid .card-art::before{display:none}
+.card-art>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.card:hover .card-art>img{transform:scale(1.055)}}
+@media(prefers-reduced-motion:reduce){.card:hover .card-art>img{transform:none}}
