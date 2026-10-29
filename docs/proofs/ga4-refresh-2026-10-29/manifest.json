@@ -1,0 +1,74 @@
+{
+  "period": [
+    "2026-10-27",
+    "2026-10-29"
+  ],
+  "timezone": "Europe/Moscow",
+  "traffic": {
+    "sessions": 11,
+    "engaged_sessions": 8,
+    "events": 165,
+    "generate_lead": 2
+  },
+  "campaign": {
+    "sessions": 6,
+    "engaged_sessions": 5,
+    "key_events_all": 3
+  },
+  "funnel": {
+    "instagram": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "direct": [
+      3,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "sheet_test": {
+    "M2": "went",
+    "M3": "lost",
+    "M4:M8": "new",
+    "N8": "SNOW300"
+  },
+  "unconfirmed": [
+    "form_submit",
+    "messenger_click",
+    "social_click",
+    "physical_mobile_qr",
+    "exact_session_source_insight"
+  ],
+  "images": [
+    "traffic.png",
+    "freeform-comparison.png",
+    "freeform-campaign.png",
+    "funnel-open.png",
+    "funnel-closed.png",
+    "funnel-device.png",
+    "funnel-timed.png",
+    "path-reverse.png",
+    "path-forward.png",
+    "insight-limitation.png",
+    "landing-all.png",
+    "landing-instagram.png",
+    "events.png",
+    "user-acquisition.png",
+    "attribution-limitation.png",
+    "status-test.png"
+  ],
+  "ui_exports": [
+    "traffic-acquisition-refresh-2026-10-29.csv",
+    "free-form-comparison-2026-10-29.csv",
+    "funnel-open-2026-10-29.csv",
+    "free-form.csv",
+    "events-refresh-2026-10-29.csv",
+    "paths-2026-10-29.pdf",
+    "funnels-2026-10-29.pdf"
+  ]
+}

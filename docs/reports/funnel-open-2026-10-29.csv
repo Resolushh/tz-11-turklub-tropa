@@ -1,0 +1,38 @@
+# ----------------------------------------
+# ТРОПА — сайт
+# ТРОПА · Воронка заявки-Open · Source
+# 20261027-20261029
+# ----------------------------------------
+
+Шаг,Сегмент,Источник сеанса,Активные пользователи,Коэффициент завершения,Прерывания,Коэффициент прерывания
+1. page_view,Instagram Sessions,Итого,1,1,0,0
+1. page_view,Instagram Sessions,instagram,1,1,0,0
+1. page_view,Instagram Sessions,(direct),0,-,-,-
+1. page_view,Direct Sessions,Итого,3,0,3,1
+1. page_view,Direct Sessions,instagram,0,-,-,-
+1. page_view,Direct Sessions,(direct),3,0,3,1
+2. trip_filter,Instagram Sessions,Итого,1,1,0,0
+2. trip_filter,Instagram Sessions,instagram,1,1,0,0
+2. trip_filter,Instagram Sessions,(direct),0,-,-,-
+2. trip_filter,Direct Sessions,Итого,0,-,-,-
+2. trip_filter,Direct Sessions,instagram,0,-,-,-
+2. trip_filter,Direct Sessions,(direct),0,-,-,-
+3. cta_click,Instagram Sessions,Итого,1,1,0,0
+3. cta_click,Instagram Sessions,instagram,1,1,0,0
+3. cta_click,Instagram Sessions,(direct),0,-,-,-
+3. cta_click,Direct Sessions,Итого,0,-,-,-
+3. cta_click,Direct Sessions,instagram,0,-,-,-
+3. cta_click,Direct Sessions,(direct),0,-,-,-
+4. form_start,Instagram Sessions,Итого,1,1,0,0
+4. form_start,Instagram Sessions,instagram,1,1,0,0
+4. form_start,Instagram Sessions,(direct),0,-,-,-
+4. form_start,Direct Sessions,Итого,0,-,-,-
+4. form_start,Direct Sessions,instagram,0,-,-,-
+4. form_start,Direct Sessions,(direct),0,-,-,-
+5. generate_lead,Instagram Sessions,Итого,1,-,-,-
+5. generate_lead,Instagram Sessions,instagram,1,-,-,-
+5. generate_lead,Instagram Sessions,(direct),0,-,-,-
+5. generate_lead,Direct Sessions,Итого,0,-,-,-
+5. generate_lead,Direct Sessions,instagram,0,-,-,-
+5. generate_lead,Direct Sessions,(direct),0,-,-,-
+
