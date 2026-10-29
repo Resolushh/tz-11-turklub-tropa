@@ -33,11 +33,11 @@
  function error(field,text,type='validation'){const node=document.querySelector('#error-'+field);if(node)node.textContent=text;form.elements[field]?.classList.add('invalid');form.elements[field]?.setAttribute('aria-invalid','true');window.tropaEvent('form_error',{field_name:field,error_type:type});}
  function clearFieldError(event){const field=event.target;if(!field.name)return;field.classList.remove('invalid');field.removeAttribute('aria-invalid');const node=document.querySelector('#error-'+field.name);if(node)node.textContent='';}
  form.addEventListener('input',clearFieldError);form.addEventListener('change',clearFieldError);
- let accepted=false;
+ let accepted=false,submitting=false;
  form.addEventListener('submit',async e=>{
  // After server confirmation, let the browser complete the form navigation.
  if(accepted)return;
- e.preventDefault();status.textContent='';form.querySelectorAll('.error').forEach(n=>n.textContent='');form.querySelectorAll('.invalid').forEach(n=>{n.classList.remove('invalid');n.removeAttribute('aria-invalid');});
+ e.preventDefault();if(submitting)return;status.textContent='';form.querySelectorAll('.error').forEach(n=>n.textContent='');form.querySelectorAll('.invalid').forEach(n=>{n.classList.remove('invalid');n.removeAttribute('aria-invalid');});
  const data=Object.fromEntries(new FormData(form));data.name=(data.name||'').trim();data.phone=window.TROPA_PHONE.normalize(data.phone);data.email=(data.email||'').trim();data.participants=Number(data.participants);let invalid=false;const fail=(k,m)=>{invalid=true;error(k,m);};
  if(data.name.length<2||data.name.length>60)fail('name','Введите имя от 2 до 60 символов.');
  if(!data.phone)fail('phone','Укажите 10 цифр номера после +7.');
@@ -53,11 +53,11 @@
  if(invalid){form.querySelector('.invalid')?.focus();return;}
  if(!window.TROPA_CONFIG.bookingEndpoint){status.textContent='Приём заявок ещё не подключён. Заявка не отправлена.';window.tropaEvent('form_error',{field_name:'server',error_type:'server'});return;}
  data.request_id=requestId;const defaults={utm_source:'direct',utm_medium:'none',utm_campaign:'not_set',utm_content:'not_set'};for(const [k,v] of Object.entries(defaults)){try{data[k]=sessionStorage.getItem(k)||v;}catch{data[k]=v;}}
- const button=form.querySelector('[type=submit]');button.disabled=true;status.textContent='Отправляем заявку…';
- try {const response=await fetch(window.TROPA_CONFIG.bookingEndpoint,{method:'POST',body:new URLSearchParams(data),signal:AbortSignal.timeout(25000)});if(!response.ok)throw Error('server');const result=await response.json();if(result.ok!==true)throw Error(result.error||'server');window.tropaEvent('generate_lead',{lead_trip_id:data.trip_id,participants:data.participants,lead_source:data.utm_source});try{sessionStorage.setItem('last_request_id',requestId);}catch{}accepted=true;
+ const button=form.querySelector('[type=submit]');submitting=true;button.disabled=true;status.textContent='Отправляем заявку…';
+ try {const response=await fetch(window.TROPA_CONFIG.bookingEndpoint,{method:'POST',body:new URLSearchParams(data),signal:AbortSignal.timeout(25000)});if(!response.ok)throw Error('server');const result=await response.json();if(result.ok!==true)throw Error(result.error||'server');await window.tropaEvent('generate_lead',{lead_trip_id:data.trip_id,participants:data.participants,lead_source:data.utm_source},{waitForProcessing:true});try{sessionStorage.setItem('last_request_id',requestId);}catch{}accepted=true;
  // Do not put booking fields or personal data in the confirmation URL.
  for(const control of form.elements)control.disabled=true;
  form.requestSubmit();}
- catch{status.textContent='Не удалось подтвердить запись. Повторите отправку: повторная заявка с тем же номером не будет создана.';window.tropaEvent('form_error',{field_name:'server',error_type:'server'});}finally{button.disabled=false;}
+ catch{status.textContent='Не удалось подтвердить запись. Повторите отправку: повторная заявка с тем же номером не будет создана.';window.tropaEvent('form_error',{field_name:'server',error_type:'server'});}finally{if(!accepted){submitting=false;button.disabled=false;}}
  });
 })();
