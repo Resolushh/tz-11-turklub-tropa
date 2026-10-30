@@ -4,14 +4,19 @@
 
 ## Ссылки
 
-- [Сайт](https://tz-11-turklub-tropa-phi.vercel.app/)
-- [Таблица заявок и реестр UTM, чтение по ссылке](https://docs.google.com/spreadsheets/d/11_X-0ho07vGj-Q-Z5V2aeUz0e2_W9zXHBeM34XoDY_c/edit)
-- [Instagram @tropa_winter_hiking](https://www.instagram.com/tropa_winter_hiking/)
-- [Reel с двумя автоответами](https://www.instagram.com/reel/DfFy1SzKrMz/)
-- [Описание работы](docs/opisanie.md), [аналитическая записка](docs/report.md), [проверки](docs/verification.md)
-- [Реестр CSV](docs/utm.csv), [реестр XLSX с формулами](docs/utm.xlsx), [афиша с QR](docs/afisha.pdf)
-- [Статус требований](docs/status.md), [решения по объёму](docs/decisions.md)
-- [Промежуточная презентация](presentation/zashchita.pdf) — финальная версия отложена пользователем
+| Что | Ссылка |
+|---|---|
+| Сайт | https://tz-11-turklub-tropa-phi.vercel.app/ |
+| Таблица заявок и реестр UTM, чтение по ссылке | https://docs.google.com/spreadsheets/d/11_X-0ho07vGj-Q-Z5V2aeUz0e2_W9zXHBeM34XoDY_c/edit |
+| Instagram | https://www.instagram.com/tropa_winter_hiking/ |
+| Reel с двумя автоответами | https://www.instagram.com/reel/DfFy1SzKrMz/ |
+| Описание работы | [docs/opisanie.md](docs/opisanie.md) |
+| Аналитическая записка | [docs/report.md](docs/report.md) |
+| Проверки | [docs/verification.md](docs/verification.md) |
+| Реестр UTM | [CSV](docs/utm.csv), [XLSX с формулами](docs/utm.xlsx) |
+| Афиша с QR | [docs/afisha.pdf](docs/afisha.pdf) |
+| Статус требований | [docs/status.md](docs/status.md), [решения по объёму](docs/decisions.md) |
+| Презентация | [Промежуточный PDF](presentation/zashchita.pdf); финальная версия отложена |
 
 GA4: «ТРОПА — сайт», Measurement ID **G-JG7PNX1WWW**, ресурс 560936809. Выдача Viewer преподавателю исключена пользователем из объёма.
 
